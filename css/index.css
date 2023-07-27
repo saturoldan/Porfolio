@@ -1,0 +1,293 @@
+html,
+body {
+  background-color: #efefef;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+/*************************************************/
+:root {
+  --blanco: #ffffff;
+  --negro: #121010;
+}
+:root[color-mode="light"] {
+  --estilo: #ffffff;
+  --element1: #111111;
+    --element2: #C4C4C4;
+    --tertiary: #fff7d6;
+    --texto: #7C7C7C;
+    --texto_user: #7C7C7C;
+    --boxshadow: 4px 4px 20px #121212;
+    --buttonshadow: 0px 1px 5px #C4C4C4;
+    --bshover: 4px 6px 20px #b8b8b8;
+    --fondoform: #ffffff;
+    --bgcolor: rgba(189, 219, 186, 0.9);
+    --formborder: 1px solid #D9D9D9;
+    --fullbgcolor: #eeeeee;
+    
+}
+/*Estilo del contenedor principal*/
+.grid-container {
+	width: 100%;
+	height: auto;
+	background: var(--negro);
+  z-index: 5;
+	display: grid;
+	justify-content: space-between;
+	transition: all 0.25s ease-in;
+  	grid-template-areas:
+  	'logo-gap menu-container'
+  	'main main'
+}
+/*posicionamos fixed para que la cabecera quede siempre estática*/
+#top_container {
+  position: fixed;
+  background-color: var(--negro);
+  left: 0;
+  top: 0;
+  right: 0;
+}
+.logo {
+	grid-area: logo-gap;
+	height: 110px;
+	width: 330px;
+  margin: 3px 0 0 0;
+	position: relative;
+  background: var(--negro);
+	z-index: 10;
+}
+
+/*Contenedor de Menu*/
+.menu-container {
+	grid-area: menu-container;
+	height: 100px;
+	width: 100px;
+  margin: 0 20px 0 0;
+	display: grid;
+	justify-content: end;
+	grid-template-areas:
+	'menu1'
+}
+/*Posiciono el botón de Galerías*/
+.item01 {
+  grid-area: menu1;
+  height: 50px;
+  width: 130px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #C4C4C4;
+  border-radius: 25px;
+  font-family: 'Avant Garde', sans-serif;
+  color: #C4C4C4;
+  font-size: 1.3rem;
+  position: relative;
+}
+
+.grid-item {
+	background-color: var(--negro);
+	text-align: center;
+	padding: 20px 0 0 0;
+	font-family: 'Raleway', sans-serif;
+ 	transition: all 0.25s ease-in;
+}
+.logo-pic {
+	display: block;
+	width: 300px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-color: var(--negro);
+  	transition: all 0.25s ease-in;
+}
+
+.contacto {
+
+}
+/*separador para colocar el menu desplegable*/
+#first_element {
+	padding: 44px 0 0 0;
+}
+
+/*Estilos del menu container*/
+.menu-container a{
+  padding: 10px 10px 10px 10px;
+  text-decoration: none;
+  text-align: center;
+  color: #C4C4C4;
+  transition: all ease 0.25s;
+  border-radius: 2px;
+}
+.menu-container a:hover{
+  color: rgba(255,255,255,1);
+}
+.item01:hover{
+  color: rgba(255,255,255,1);
+  background-color: #BDDBBA;
+  border-bottom-color:rgba(255,255,255,0.4);
+}
+#rightContent{
+  z-index: 10;
+}
+#nav1 {
+  opacity: 0;
+  position: fixed;
+  top: -100%;
+  right:-100%;
+  z-index: 5;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2rem;
+  box-shadow: var(--boxshadow);
+  transition: all 0.25s ease-in;
+}
+.linea1 a{
+	color: white;
+}
+
+.visible_menu #nav1 {
+  opacity: 1;
+  position: fixed;
+  top: 120px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  transition: all 0.25s ease-in;
+}
+
+.linea1 {
+  background-color: #BDDBBA;
+  color: white;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding-top: 20%;
+}
+
+.comentario {
+  display: grid;
+  justify-content: center;
+  margin: 0 15% 0 15%;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  color: #C4C4C4;
+}
+/*Responsive*/
+
+/*Cuando llegue a 600px contenedor y logo cambian tamaño*/
+@media only screen and (max-width: 600px) {
+  .logo-pic {
+  width: 200px;
+  left: 30px;
+  padding: 13px 0 0 0;
+  }
+  .logo{
+  width: 200px;
+  }
+  .gridContainer {
+  height: 80px;
+  }
+  #menu_on {
+  right: 30px;
+  top: -65px;
+  }
+  #nav1 {
+  top: 80px;
+  }
+  #nav2 {
+  top: 80px;
+  }
+  #dark {
+    grid-area: dark;
+    position: absolute;
+    width:25px;
+    height: 40px;
+    right: 95px;
+    top: 32px;
+  }
+  .item01 {
+    height: 40px;
+    width: 110px;
+    font-size: 1rem;
+  }
+}
+
+.principal {
+	position: fixed;
+	top:100px;
+	left:0;
+	bottom: 0;
+	right: 0;
+	z-index: -2;
+	overflow: scroll;
+	background-color: var(--negro);
+  	transition: all 0.25s ease-in;
+}
+
+/****************************************/
+.cuerpo {
+	position: absolute;
+	top: 10vh;
+	right: 0;
+	bottom: 0;
+	left: 0;
+  z-index: 0;
+
+}
+.wrapper {
+  bottom: 0;
+  left: 0;
+  position: relative;
+  right: 0;
+  top: 0;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+  /*margin: 5% auto 5% auto;*/
+  max-height: 80vh;
+}
+
+.aspect {
+  padding: 0 0 50% 0;
+  position: relative;
+  width: 85%;
+  z-index: 0;
+}
+
+.aspect-inner {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.flipbook {
+  height: 85%;
+  transition: margin-left 0.25s ease-out;
+  width: 100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.flipbook .page {
+  height: 100%;
+  width: 100%;
+}
+
+.flipbook .page img {
+  max-width: 1400px;
+  width: 100%;
+  height: 100%;
+}
